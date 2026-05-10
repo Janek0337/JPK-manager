@@ -1,0 +1,4 @@
+IBAN	Okres_YYYYMM	Numer_Wiersza	Data_Operacji	Nazwa_Podmiotu	Opis_Operacji	Kwota_Operacji	Saldo_Operacji
+PL12345678901234567890123456	202605	1	2026-05-04	Jan Kowalski	Wpłata za fakturę	500.00	1500.00
+PL12345678901234567890123456	202605	2	2026-05-04	Sklep ABC	Zakup materiałów	-200.00	1300.00
+PL12345678901234567890123456	202605	3	2026-05-05	Poczta Polska	Usługi pocztowe	-50.50	1249.50

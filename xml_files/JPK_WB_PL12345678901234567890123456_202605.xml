@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tns:JPK xmlns:tns="http://jpk.mf.gov.pl/wzor/2016/03/09/03092/" xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2016/01/25/eD/DefinicjeTypy/" xmlns:kck="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2013/05/23/eD/KodyCECHKRAJOW/">
+  <tns:Naglowek>
+    <tns:KodFormularza kodSystemowy="JPK_WB (1)" wersjaSchemy="1-0">JPK_WB</tns:KodFormularza>
+    <tns:WariantFormularza>1</tns:WariantFormularza>
+    <tns:CelZlozenia>1</tns:CelZlozenia>
+    <tns:DataWytworzeniaJPK>2026-05-10T19:26:42Z</tns:DataWytworzeniaJPK>
+    <tns:DataOd>2026-05-01</tns:DataOd>
+    <tns:DataDo>2026-05-31</tns:DataDo>
+    <tns:DomyslnyKodWaluty>PLN</tns:DomyslnyKodWaluty>
+    <tns:KodUrzedu>1471</tns:KodUrzedu>
+  </tns:Naglowek>
+  <tns:Podmiot1>
+    <tns:IdentyfikatorPodmiotu>
+      <etd:NIP>1112223344</etd:NIP>
+      <etd:PelnaNazwa>Firma Testowa Sp. z o.o.</etd:PelnaNazwa>
+    </tns:IdentyfikatorPodmiotu>
+    <tns:AdresPodmiotu>
+      <etd:KodKraju>PL</etd:KodKraju>
+      <etd:Wojewodztwo>Mazowieckie</etd:Wojewodztwo>
+      <etd:Powiat>Warszawa</etd:Powiat>
+      <etd:Gmina>Centrum</etd:Gmina>
+      <etd:NrDomu>10</etd:NrDomu>
+      <etd:Miejscowosc>Warszawa</etd:Miejscowosc>
+      <etd:KodPocztowy>00-001</etd:KodPocztowy>
+      <etd:Poczta>Warszawa</etd:Poczta>
+    </tns:AdresPodmiotu>
+  </tns:Podmiot1>
+  <tns:NumerRachunku>PL12345678901234567890123456</tns:NumerRachunku>
+  <tns:Salda>
+    <tns:SaldoPoczatkowe>1000.00</tns:SaldoPoczatkowe>
+    <tns:SaldoKoncowe>1249.50</tns:SaldoKoncowe>
+  </tns:Salda>
+  <tns:WyciagWiersz typ="G">
+    <tns:NumerWiersza>1</tns:NumerWiersza>
+    <tns:DataOperacji>2026-05-04</tns:DataOperacji>
+    <tns:NazwaPodmiotu>Jan Kowalski</tns:NazwaPodmiotu>
+    <tns:OpisOperacji>Wpłata za fakturę</tns:OpisOperacji>
+    <tns:KwotaOperacji>500.00</tns:KwotaOperacji>
+    <tns:SaldoOperacji>1500.00</tns:SaldoOperacji>
+  </tns:WyciagWiersz>
+  <tns:WyciagWiersz typ="G">
+    <tns:NumerWiersza>2</tns:NumerWiersza>
+    <tns:DataOperacji>2026-05-04</tns:DataOperacji>
+    <tns:NazwaPodmiotu>Sklep ABC</tns:NazwaPodmiotu>
+    <tns:OpisOperacji>Zakup materiałów</tns:OpisOperacji>
+    <tns:KwotaOperacji>-200.00</tns:KwotaOperacji>
+    <tns:SaldoOperacji>1300.00</tns:SaldoOperacji>
+  </tns:WyciagWiersz>
+  <tns:WyciagWiersz typ="G">
+    <tns:NumerWiersza>3</tns:NumerWiersza>
+    <tns:DataOperacji>2026-05-05</tns:DataOperacji>
+    <tns:NazwaPodmiotu>Poczta Polska</tns:NazwaPodmiotu>
+    <tns:OpisOperacji>Usługi pocztowe</tns:OpisOperacji>
+    <tns:KwotaOperacji>-50.50</tns:KwotaOperacji>
+    <tns:SaldoOperacji>1249.50</tns:SaldoOperacji>
+  </tns:WyciagWiersz>
+  <tns:WyciagCtrl>
+    <tns:LiczbaWierszy>3</tns:LiczbaWierszy>
+    <tns:SumaObciazen>250.50</tns:SumaObciazen>
+    <tns:SumaUznan>500.00</tns:SumaUznan>
+  </tns:WyciagCtrl>
+</tns:JPK>
