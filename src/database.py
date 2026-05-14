@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Numeric, Date, ForeignKey, UniqueConstraint, DateTime, Text
-from sqlalchemy.orm import DeclarativeBase, relationship
+from sqlalchemy.orm import DeclarativeBase, relationship, Session
 from sqlalchemy.sql import func
 
 class Base(DeclarativeBase):
@@ -46,10 +46,6 @@ class WierszOperacji(Base):
         return f"<Wiersz(Nr='{self.numer_wiersza}', Kwota='{self.kwota_operacji}')>"
 
 class SlownikRachunkow(Base):
-    """
-    Słownik własnych rachunków w bazie (Wymaganie W05).
-    Służy do weryfikacji, czy wczytywany IBAN jest obsługiwany przez system.
-    """
     __tablename__ = 'slownik_rachunkow'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -62,10 +58,6 @@ class SlownikRachunkow(Base):
 
 
 class SlownikPodmiotow(Base):
-    """
-    Słownik podmiotów zawierający NIP i pełne dane adresowe (Wymaganie W15).
-    Struktura odzwierciedla węzły IdentyfikatorPodmiotu i AdresPodmiotu z JPK_WB.
-    """
     __tablename__ = 'slownik_podmiotow'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -90,10 +82,6 @@ class SlownikPodmiotow(Base):
 
 
 class LogImportu(Base):
-    """
-    Raportowanie błędów walidacji i importu (Wymaganie W08).
-    Zapisuje informacje w przypadku np. braku numeru IBAN w słowniku (W07) lub błędów sald (W12).
-    """
     __tablename__ = 'log_importu'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -108,10 +96,6 @@ class LogImportu(Base):
 
     def __repr__(self):
         return f"<Log(Data='{self.data_zdarzenia}', Typ='{self.typ_bledu}')>"
-    
-from sqlalchemy.orm import Session
-# Zakładamy, że Twoje modele są w pliku models.py
-# from models import SlownikPodmiotow, SlownikRachunkow, LogImportu
 
 def pobierz_dane_podmiotu(session: Session, nip_firmy: str) -> dict:
     podmiot = session.query(SlownikPodmiotow).filter_by(nip=nip_firmy).first()
@@ -130,11 +114,10 @@ def pobierz_dane_podmiotu(session: Session, nip_firmy: str) -> dict:
         'miejscowosc': podmiot.miejscowosc,
         'kod_pocztowy': podmiot.kod_pocztowy,
         'poczta': podmiot.poczta,
-        'kod_urzedu': '1471' # Zazwyczaj dodaje się to również do modelu, tu dla przykładu wpisane na sztywno
+        'kod_urzedu': '1471'
     }
 
 def zapisz_log_bledu(session: Session, plik: str, typ_bledu: str, opis_bledu: str):
-    """Zapisuje błąd importu do bazy danych (Wymaganie W08)."""
     nowy_log = LogImportu(
         plik_zrodlowy=plik,
         typ_bledu=typ_bledu,
